@@ -38,29 +38,59 @@ export default function RootLayout({ children }) {
 // ===== PASTE YOUR HEADER HTML HERE =====
 function Header() {
   return (
-    
-    <header>
-        <div className="header-content">
-            <div className="logo">
-                <div className="logo-icon">ST</div>
-                Swift Techy
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#cpus">CPUs</a></li>
-                    <li><a href="#gpus">GPUs</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#news">News</a></li>
-                </ul>
-            </nav>
-            <div className="search-box">
-                <span className="search-icon">🔍</span>
-                <input type="text" placeholder="Search articles..."/>
-            </div>
+    <header style={styles.header}>
+      <div style={styles.headerContent}>
+        {/* Mobile Menu Button */}
+        <button 
+          className="mobile-menu-btn"
+          onClick={() => {
+            const nav = document.querySelector('.mobile-nav');
+            nav.classList.toggle('hidden');
+          }}
+        >
+          ☰
+        </button>
+
+        {/* Logo */}
+        <div style={styles.logo}>
+          <div style={styles.logoIcon}>ST</div>
+          <span>Swift Techy</span>
         </div>
+
+        {/* Desktop Navigation */}
+        <nav>
+          <ul style={styles.nav}>
+            <li><a href="/" style={styles.navLink}>Home</a></li>
+            <li><a href="/cpus" style={styles.navLink}>CPUs</a></li>
+            <li><a href="/gpus" style={styles.navLink}>GPUs</a></li>
+            <li><a href="/reviews" style={styles.navLink}>Reviews</a></li>
+            <li><a href="/news" style={styles.navLink}>News</a></li>
+          </ul>
+        </nav>
+
+        {/* Search Box */}
+        <div style={styles.searchBox}>
+          <span>🔍</span>
+          <input 
+            type="text" 
+            placeholder="Search articles..." 
+            style={styles.searchInput}
+          />
+        </div>
+      </div>
+
+      {/* Mobile Dropdown Nav */}
+      <nav className="mobile-nav hidden">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/cpus">CPUs</a></li>
+          <li><a href="/gpus">GPUs</a></li>
+          <li><a href="/reviews">Reviews</a></li>
+          <li><a href="/news">News</a></li>
+        </ul>
+      </nav>
     </header>
-  )
+  );
 }
 
 // ===== PASTE YOUR FOOTER HTML HERE =====
