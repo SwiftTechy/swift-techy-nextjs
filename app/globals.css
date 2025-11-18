@@ -1317,6 +1317,7 @@ html {
 }
 
 /* ========== MOBILE NAVIGATION FIX ========== */
+/* ========== MOBILE NAVIGATION FIX ========== */
 @media (max-width: 768px) {
   .header-content {
     position: relative;
@@ -1324,7 +1325,7 @@ html {
   }
 
   /* Hide desktop nav on mobile */
-  nav {
+  .desktop-nav {
     display: none !important;
   }
 
@@ -1350,11 +1351,12 @@ html {
     padding: 0.5rem;
     border-radius: 8px;
     cursor: pointer;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
+    z-index: 1000;
   }
 
   /* Mobile dropdown menu */
@@ -1368,6 +1370,7 @@ html {
     padding: 1rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     z-index: 999;
+    transition: all 0.3s ease;
   }
 
   .mobile-nav ul {
@@ -1392,6 +1395,7 @@ html {
     text-decoration: none;
     font-size: 1.05rem;
     font-weight: 500;
+    transition: background-color 0.3s;
   }
 
   .mobile-nav a:active {
@@ -1403,12 +1407,19 @@ html {
     display: none;
   }
 
-  /* Center button text on mobile */
-  .btn-primary,
-  .btn-secondary {
-    text-align: center !important;
-    justify-content: center !important;
-    display: flex !important;
-    align-items: center !important;
+  /* Show mobile nav when active */
+  .mobile-nav.active {
+    display: block;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  .mobile-nav {
+    display: none !important;
   }
 }
