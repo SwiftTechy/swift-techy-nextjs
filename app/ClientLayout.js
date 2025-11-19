@@ -48,16 +48,14 @@ function Header() {
         </div>
       </div>
 
-      {/* Improved Mobile Dropdown Nav */}
+      {/* Click outside overlay */}
+      <div 
+        className={`mobile-nav-overlay ${isMobileNavOpen ? 'active' : ''}`}
+        onClick={closeMobileNav}
+      />
+
+      {/* Compact Mobile Dropdown Nav */}
       <nav className={`mobile-nav ${isMobileNavOpen ? 'active' : ''}`}>
-        <button 
-          className="mobile-nav-close"
-          onClick={closeMobileNav}
-          aria-label="Close menu"
-        >
-          ✕
-        </button>
-        
         <ul>
           <li><a href="/" onClick={closeMobileNav}>Home</a></li>
           <li><a href="/cpus" onClick={closeMobileNav}>CPUs</a></li>
