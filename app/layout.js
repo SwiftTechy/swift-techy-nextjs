@@ -1,3 +1,5 @@
+"use client";
+
 import Script from 'next/script'
 import './globals.css'
 import { useState } from 'react' // Add this import
