@@ -9,6 +9,10 @@ function Header() {
     setIsMobileNavOpen(!isMobileNavOpen);
   };
 
+  const closeMobileNav = () => {
+    setIsMobileNavOpen(false);
+  };
+
   return (
     <header>
       <div className="header-content">
@@ -44,13 +48,22 @@ function Header() {
         </div>
       </div>
 
-      <nav className={`mobile-nav ${isMobileNavOpen ? 'active' : 'hidden'}`}>
+      {/* Improved Mobile Dropdown Nav */}
+      <nav className={`mobile-nav ${isMobileNavOpen ? 'active' : ''}`}>
+        <button 
+          className="mobile-nav-close"
+          onClick={closeMobileNav}
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+        
         <ul>
-          <li><a href="/" onClick={toggleMobileNav}>Home</a></li>
-          <li><a href="/cpus" onClick={toggleMobileNav}>CPUs</a></li>
-          <li><a href="/gpus" onClick={toggleMobileNav}>GPUs</a></li>
-          <li><a href="/reviews" onClick={toggleMobileNav}>Reviews</a></li>
-          <li><a href="/news" onClick={toggleMobileNav}>News</a></li>
+          <li><a href="/" onClick={closeMobileNav}>Home</a></li>
+          <li><a href="/cpus" onClick={closeMobileNav}>CPUs</a></li>
+          <li><a href="/gpus" onClick={closeMobileNav}>GPUs</a></li>
+          <li><a href="/reviews" onClick={closeMobileNav}>Reviews</a></li>
+          <li><a href="/news" onClick={closeMobileNav}>News</a></li>
         </ul>
       </nav>
     </header>

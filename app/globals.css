@@ -1423,3 +1423,381 @@ html {
     display: none !important;
   }
 }
+
+/* ========== HERO SECTION REFINEMENTS ========== */
+
+/* Better text alignment and spacing */
+.hero-text {
+  text-align: center;
+  position: relative;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.hero-text p {
+  color: #475569;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Center the buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Better stats alignment */
+.stats {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+  max-width: 120px;
+}
+
+.stat-item h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.stat-item p {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Reduce gap between hero sections */
+.hero-content {
+  gap: 2rem;
+}
+
+/* Featured card adjustments */
+.hero-image {
+  position: relative;
+  padding-top: 0;
+}
+
+.featured-card {
+  margin-top: 0;
+}
+
+/* ========== MOBILE REFINEMENTS ========== */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  
+  .stats {
+    gap: 1.5rem;
+  }
+  
+  .stat-item h3 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem !important;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .hero-text p {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .stats {
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  
+  .stat-item h3 {
+    font-size: 1.8rem;
+  }
+  
+  .stat-item p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .stats {
+    gap: 0.5rem;
+  }
+  
+  .stat-item h3 {
+    font-size: 1.5rem;
+  }
+  
+  .stat-item p {
+    font-size: 0.75rem;
+  }
+}
+
+/* ========== CONTENT SECTION SPACING ========== */
+.content-section {
+  padding: 4rem 2rem;
+}
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+/* ========== NEWS SECTION SPACING ========== */
+.news-section {
+  padding: 4rem 2rem;
+}
+
+.filter-buttons {
+  margin-bottom: 3rem;
+}
+
+/* ========== GENERAL SPACING IMPROVEMENTS ========== */
+.content-card {
+  padding: 2rem 1.5rem;
+}
+
+.news-card h3 {
+  min-height: 3.5em;
+}
+
+.news-card p {
+  min-height: 3em;
+}
+
+/* ========== FIX FEATURED STORY BADGE ON MOBILE ========== */
+@media (max-width: 768px) {
+  .hero-image::before {
+    content: '🚀 Featured Story';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    width: fit-content;
+    margin: 0 auto;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    z-index: 10;
+  }
+  
+  .hero-image {
+    position: relative;
+    padding-top: 3rem;
+  }
+}
+
+/* ========== REDESIGNED MOBILE NAVIGATION ========== */
+@media (max-width: 768px) {
+  .header-content {
+    position: relative;
+    justify-content: center !important;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Hide desktop nav on mobile */
+  .desktop-nav {
+    display: none !important;
+  }
+
+  /* Center logo on mobile */
+  .logo {
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  /* Hide search box on mobile */
+  .search-box {
+    display: none !important;
+  }
+
+  /* Improved Hamburger menu button */
+  .mobile-menu-btn {
+    position: absolute;
+    left: 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05);
+  }
+
+  /* Redesigned Mobile dropdown menu */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.98) 0%, rgba(15, 23, 42, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    padding: 5rem 2rem 2rem;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .mobile-nav.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .mobile-nav li {
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .mobile-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-nav li:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .mobile-nav a {
+    display: block;
+    padding: 1.2rem 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+  }
+
+  .mobile-nav a:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-left-color: #3b82f6;
+    padding-left: 1.5rem;
+    color: #60a5fa;
+  }
+
+  /* Close button for mobile nav */
+  .mobile-nav-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 769px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  .mobile-nav {
+    display: none !important;
+  }
+}
