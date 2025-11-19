@@ -2,7 +2,7 @@
 
 import Script from 'next/script'
 import './globals.css'
-import { useState } from 'react' // Add this import
+import ClientLayout from './ClientLayout' // We'll create this
 
 export const metadata = {
   title: 'Swift Techy - PC Hardware Blog',
@@ -12,7 +12,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* Google Analytics */}
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-X7Y26M4QRV"
@@ -30,6 +29,11 @@ export default function RootLayout({ children }) {
         }}
       />
       <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
+    </html>
+  )
+}
         <Header />
         <main>{children}</main>
         <Footer />
