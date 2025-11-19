@@ -54,19 +54,47 @@ function Header() {
         onClick={closeMobileNav}
       />
 
-      {/* Compact Mobile Dropdown Nav */}
+      {/* Proper Vertical Mobile Navigation */}
       <nav className={`mobile-nav ${isMobileNavOpen ? 'active' : ''}`}>
-        <ul>
-          <li><a href="/" onClick={closeMobileNav}>Home</a></li>
-          <li><a href="/cpus" onClick={closeMobileNav}>CPUs</a></li>
-          <li><a href="/gpus" onClick={closeMobileNav}>GPUs</a></li>
-          <li><a href="/reviews" onClick={closeMobileNav}>Reviews</a></li>
-          <li><a href="/news" onClick={closeMobileNav}>News</a></li>
-        </ul>
+        <div className="mobile-nav-container">
+          <ul>
+            <li>
+              <a href="/" onClick={closeMobileNav}>
+                <span>Home</span>
+                <span className="nav-icon">🏠</span>
+              </a>
+            </li>
+            <li>
+              <a href="/cpus" onClick={closeMobileNav}>
+                <span>CPUs</span>
+                <span className="nav-icon">⚡</span>
+              </a>
+            </li>
+            <li>
+              <a href="/gpus" onClick={closeMobileNav}>
+                <span>GPUs</span>
+                <span className="nav-icon">🎮</span>
+              </a>
+            </li>
+            <li>
+              <a href="/reviews" onClick={closeMobileNav}>
+                <span>Reviews</span>
+                <span className="nav-icon">⭐</span>
+              </a>
+            </li>
+            <li>
+              <a href="/news" onClick={closeMobileNav}>
+                <span>News</span>
+                <span className="nav-icon">📰</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
   );
 }
+
 
 function Footer() {
   return (

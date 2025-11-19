@@ -1702,8 +1702,7 @@ html {
     transform: scale(1.05);
   }
 
-  /* Redesigned Mobile dropdown menu */
-/* ========== VERTICAL MOBILE DROPDOWN NAVIGATION ========== */
+ /* ========== PROPER VERTICAL MOBILE NAVIGATION ========== */
 @media (max-width: 768px) {
   .header-content {
     position: relative;
@@ -1730,7 +1729,7 @@ html {
     display: none !important;
   }
 
-  /* Improved Hamburger menu button */
+  /* Hamburger menu button */
   .mobile-menu-btn {
     position: absolute;
     left: 1rem;
@@ -1756,7 +1755,7 @@ html {
     transform: scale(1.05);
   }
 
-  /* Vertical Mobile Dropdown Menu */
+  /* Mobile Dropdown Menu Container */
   .mobile-nav {
     position: absolute;
     top: 100%;
@@ -1766,7 +1765,7 @@ html {
     backdrop-filter: blur(20px);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     border-bottom: 2px solid rgba(59, 130, 246, 0.5);
-    padding: 1rem 0;
+    padding: 0;
     z-index: 1000;
     transition: all 0.3s ease-in-out;
     transform: translateY(-10px);
@@ -1782,7 +1781,15 @@ html {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
-    max-height: 400px;
+    max-height: 500px;
+  }
+
+  /* Navigation Container - Vertical Layout */
+  .mobile-nav-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
   }
 
   .mobile-nav ul {
@@ -1795,6 +1802,8 @@ html {
   }
 
   .mobile-nav li {
+    display: block;
+    width: 100%;
     margin: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: background-color 0.3s ease;
@@ -1808,30 +1817,20 @@ html {
     background: rgba(255, 255, 255, 0.05);
   }
 
+  /* Vertical Link Layout */
   .mobile-nav a {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 1.2rem 1.5rem;
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
     font-weight: 500;
     transition: all 0.3s ease;
-    position: relative;
     width: 100%;
-    white-space: nowrap;
-  }
-
-  .mobile-nav a::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    min-height: 56px;
+    box-sizing: border-box;
   }
 
   .mobile-nav a:hover {
@@ -1840,39 +1839,17 @@ html {
     padding-left: 2rem;
   }
 
-  .mobile-nav a:hover::before {
-    opacity: 1;
-  }
-
-  /* Add icons to mobile menu items */
-  .mobile-nav a[href="/"]::after { 
-    content: "🏠"; 
-    margin-left: auto;
-    font-size: 1.2rem;
-  }
-  .mobile-nav a[href="/cpus"]::after { 
-    content: "⚡"; 
-    margin-left: auto;
-    font-size: 1.2rem;
-  }
-  .mobile-nav a[href="/gpus"]::after { 
-    content: "🎮"; 
-    margin-left: auto;
-    font-size: 1.2rem;
-  }
-  .mobile-nav a[href="/reviews"]::after { 
-    content: "⭐"; 
-    margin-left: auto;
-    font-size: 1.2rem;
-  }
-  .mobile-nav a[href="/news"]::after { 
-    content: "📰"; 
-    margin-left: auto;
-    font-size: 1.2rem;
+  /* Icon styling */
+  .nav-icon {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
-/* Desktop styles */
+/* Desktop styles - hide mobile elements */
 @media (min-width: 769px) {
   .mobile-menu-btn {
     display: none !important;
@@ -1883,7 +1860,7 @@ html {
   }
 }
 
-/* Close mobile nav when clicking outside */
+/* Click outside overlay */
 .mobile-nav-overlay {
   position: fixed;
   top: 0;
@@ -1897,97 +1874,4 @@ html {
 
 .mobile-nav-overlay.active {
   display: block;
-}
-/* ========== MOBILE LAYOUT FIXES ========== */
-@media (max-width: 768px) {
-  /* Ensure content doesn't overflow */
-  body {
-    overflow-x: hidden;
-    width: 100%;
-  }
-  
-  /* Fix header positioning */
-  header {
-    position: relative;
-  }
-  
-  /* Make sure mobile nav takes full width */
-  .mobile-nav {
-    width: 100vw;
-    left: 0;
-    right: 0;
-  }
-  
-  /* Ensure links are properly spaced */
-  .mobile-nav a {
-    min-height: 56px;
-    display: flex;
-    align-items: center;
-  }
-}
-
-/* Prevent horizontal scroll on mobile */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* ========== FIX MOBILE NAV ICON ALIGNMENT ========== */
-@media (max-width: 768px) {
-  .mobile-nav a {
-    display: flex;
-    align-items: center;
-    padding: 1.2rem 1.5rem;
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
-    width: 100%;
-    white-space: nowrap;
-    /* Ensure perfect vertical alignment */
-    justify-content: space-between;
-    height: 56px;
-  }
-
-  /* Fix icon alignment */
-  .mobile-nav a::after {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    margin-left: auto;
-    /* Perfect vertical alignment */
-    line-height: 1;
-    height: 24px;
-  }
-
-  /* Specific icon adjustments if needed */
-  .mobile-nav a[href="/"]::after { 
-    content: "🏠"; 
-  }
-  .mobile-nav a[href="/cpus"]::after { 
-    content: "⚡"; 
-  }
-  .mobile-nav a[href="/gpus"]::after { 
-    content: "🎮"; 
-  }
-  .mobile-nav a[href="/reviews"]::after { 
-    content: "⭐"; 
-  }
-  .mobile-nav a[href="/news"]::after { 
-    content: "📰"; 
-  }
-
-  /* Ensure hover effects work with new alignment */
-  .mobile-nav a:hover {
-    background: rgba(59, 130, 246, 0.1);
-    color: #60a5fa;
-    padding-left: 1.5rem; /* Keep consistent padding */
-  }
-
-  .mobile-nav a:hover::before {
-    opacity: 1;
-  }
 }
