@@ -54,6 +54,7 @@ header {
 
 .logo a {
   text-decoration: none !important;
+  color: #ffffff;
 }
 
 .logo:hover {
