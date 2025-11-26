@@ -53,7 +53,7 @@ header {
 }
 
 .logo a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .logo:hover {
