@@ -86,7 +86,7 @@ export default function HomePage() {
                 <p>Hardware Reviews</p>
               </div>
               <div className="stat-item">
-                <h3>50K+</h3>
+                <h3>100+</h3>
                 <p>Monthly Readers</p>
               </div>
               <div className="stat-item">

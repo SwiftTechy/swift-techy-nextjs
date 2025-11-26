@@ -52,6 +52,10 @@ header {
   transition: transform 0.3s ease;
 }
 
+.logo a {
+  text-decoration: none;
+}
+
 .logo:hover {
   transform: scale(1.02);
 }
