@@ -1,8 +1,8 @@
 // app/page.jsx
 'use client';
-
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
+import { getAllArticles } from '@/lib/articles';
 import { 
   getLatestArticles, 
   getFeaturedArticles, 
@@ -90,7 +90,7 @@ export default function HomePage() {
     <p>Component Specs</p>
   </div>
   <div className="stat-item">
-    <h3>{getAllArticles().length}+</h3>
+   <h3>{articles.length}+</h3>
     <p>Tech Articles</p>
   </div>
 </div>
