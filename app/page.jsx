@@ -75,25 +75,25 @@ export default function HomePage() {
           <div className="hero-text">
             <span className="featured-badge-top">🚀 Featured Story</span>
             <h1>Stay Ahead in PC Hardware</h1>
-            <p>Your trusted source for in-depth reviews, specifications, and the latest news on CPUs, GPUs, and cutting-edge computer hardware.</p>
+            <p>Independent hardware reviews, specifications, and tech analysis from passionate enthusiasts.</p>
             <div className="hero-buttons">
               <Link href="/categories/review" className="btn-primary">Latest Reviews →</Link>
               <Link href="/categories" className="btn-secondary">Browse Categories</Link>
             </div>
-            <div className="stats">
-              <div className="stat-item">
-                <h3>{getLatestArticles().length}+</h3>
-                <p>Hardware Reviews</p>
-              </div>
-              <div className="stat-item">
-                <h3>100+</h3>
-                <p>Monthly Readers</p>
-              </div>
-              <div className="stat-item">
-                <h3>{getCPUArticles().length + getGPUArticles().length}+</h3>
-                <p>Spec Databases</p>
-              </div>
-            </div>
+           <div className="stats">
+  <div className="stat-item">
+    <h3>{getLatestArticles().length}+</h3>
+    <p>Hardware Reviews</p>
+  </div>
+  <div className="stat-item">
+    <h3>{getCPUArticles().length + getGPUArticles().length}+</h3>
+    <p>Component Specs</p>
+  </div>
+  <div className="stat-item">
+    <h3>{getAllArticles().length}+</h3>
+    <p>Tech Articles</p>
+  </div>
+</div>
           </div>
           <div className="hero-image">
             <div className="featured-card">

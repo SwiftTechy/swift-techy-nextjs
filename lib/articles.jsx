@@ -17,7 +17,7 @@ export const articles = [
     `,
     categories: ['cpu', 'review', 'news'],
     date: '2025-03-15',
-    author: 'Sarah Chen',
+    author: 'Swift Techy Team',
     image: '/images/Ryzen_7950X3D.webp',
     featured: true,
     
@@ -61,8 +61,8 @@ export const articles = [
     
     // Author bio
     authorBio: {
-      role: 'Senior Hardware Reviewer',
-      description: 'Hardware enthusiast with 8+ years of experience testing CPUs and GPUs. Specializes in performance benchmarking and thermal analysis.',
+      role: 'Hardware Expert',
+      description: 'Part of the Swift Techy review team specializing in component testing and performance analysis.',
       social: {
         twitter: '#',
         linkedin: '#'
@@ -106,7 +106,7 @@ export const articles = [
     `,
     categories: ['gpu', 'news'],
     date: '2025-03-14',
-    author: 'Mike Rodriguez',
+    author: 'Swift Techy Team',
     image: '/images/rtx-5090.jpg',
     featured: false,
     stats: { 
@@ -192,7 +192,7 @@ export const articles = [
     `,
     categories: ['cpu', 'review'],
     date: '2025-03-13',
-    author: 'James Park',
+    author: 'Swift Techy Team',
     image: '/images/14900ks.webp',
     featured: false,
     stats: { 
@@ -296,7 +296,7 @@ export const articles = [
   `,
     categories: ['memory', 'review'],
     date: '2025-03-12',
-    author: 'Mike Rodriguez',
+    author: 'Swift Techy Team',
     image: '/images/ddr5-ram.jpg',
     featured: false,
     stats: { 
@@ -412,7 +412,7 @@ export const articles = [
   `,
     categories: ['storage', 'review', 'news'],
     date: '2025-03-11',
-    author: 'Sarah Chen',
+    author: 'Swift Techy Team',
     image: '/images/pcie5.0.jpg',
     featured: false,
     stats: { 
@@ -525,7 +525,7 @@ export const articles = [
   `,
     categories: ['gpu', 'review'],
     date: '2025-03-10',
-    author: 'James Park',
+    author: 'Swift Techy Team',
     image: '/images/amd7900xtx.jpg',
     featured: false,
     stats: { 
@@ -641,7 +641,7 @@ export const articles = [
   `,
     categories: ['cpu', 'news'],
     date: '2025-03-09',
-    author: 'Sarah Chen',
+    author: 'Swift Techy Team',
     image: '/images/featured-image.jpg',
     featured: false,
     stats: { 
@@ -784,7 +784,7 @@ export const articles = [
   `,
     categories: ['cooling', 'review'],
     date: '2025-03-08',
-    author: 'Mike Rodriguez',
+    author: 'Swift Techy Team',
     image: '/images/featured-image.jpg',
     featured: false,
     stats: { 
@@ -918,7 +918,7 @@ export const articles = [
   `,
     categories: ['cpu', 'news'],
     date: '2025-03-07',
-    author: 'James Park',
+    author: 'Swift Techy Team',
     image: '/images/featured-image.jpg',
     featured: false,
     stats: { 
@@ -1067,7 +1067,7 @@ export const articles = [
   `,
     categories: ['motherboard', 'guide'],
     date: '2025-03-06',
-    author: 'Sarah Chen',
+    author: 'Swift Techy Team',
     image: '/images/featured-image.jpg',
     featured: false,
     stats: { 
@@ -1210,7 +1210,7 @@ export const articles = [
   `,
     categories: ['gpu', 'news'],
     date: '2025-03-05',
-    author: 'Mike Rodriguez',
+    author: 'Swift Techy Team',
     image: '/images/featured-image.jpg',
     featured: false,
     stats: { 
@@ -1362,7 +1362,7 @@ export const articles = [
   `,
     categories: ['storage', 'review', 'benchmark'],
     date: '2025-03-04',
-    author: 'James Park',
+    author: 'Swift Techy Team',
     image: '/images/featured-image.jpg',
     featured: false,
     stats: { 
