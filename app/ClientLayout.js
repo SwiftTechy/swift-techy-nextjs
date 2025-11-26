@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -26,16 +27,17 @@ function Header() {
 
         <div className="logo">
           <div className="logo-icon">ST</div>
-          <span>Swift Techy</span>
+          <Link href="/">Swift Techy</Link>
         </div>
 
+        {/* Desktop Navigation - CORRECTED LINKS */}
         <nav className="desktop-nav">
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/cpus">CPUs</a></li>
-            <li><a href="/gpus">GPUs</a></li>
-            <li><a href="/reviews">Reviews</a></li>
-            <li><a href="/news">News</a></li>
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/categories/cpu">CPUs</Link></li>
+            <li><Link href="/categories/gpu">GPUs</Link></li>
+            <li><Link href="/categories/review">Reviews</Link></li>
+            <li><Link href="/categories/news">News</Link></li>
           </ul>
         </nav>
 
@@ -54,39 +56,39 @@ function Header() {
         onClick={closeMobileNav}
       />
 
-      {/* Proper Vertical Mobile Navigation */}
+      {/* Mobile Navigation - CORRECTED LINKS */}
       <nav className={`mobile-nav ${isMobileNavOpen ? 'active' : ''}`}>
         <div className="mobile-nav-container">
           <ul>
             <li>
-              <a href="/" onClick={closeMobileNav}>
+              <Link href="/" onClick={closeMobileNav}>
                 <span>Home</span>
                 <span className="nav-icon">🏠</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/cpus" onClick={closeMobileNav}>
+              <Link href="/categories/cpu" onClick={closeMobileNav}>
                 <span>CPUs</span>
                 <span className="nav-icon">⚡</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/gpus" onClick={closeMobileNav}>
+              <Link href="/categories/gpu" onClick={closeMobileNav}>
                 <span>GPUs</span>
                 <span className="nav-icon">🎮</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/reviews" onClick={closeMobileNav}>
+              <Link href="/categories/review" onClick={closeMobileNav}>
                 <span>Reviews</span>
                 <span className="nav-icon">⭐</span>
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/news" onClick={closeMobileNav}>
+              <Link href="/categories/news" onClick={closeMobileNav}>
                 <span>News</span>
                 <span className="nav-icon">📰</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -95,7 +97,6 @@ function Header() {
   );
 }
 
-
 function Footer() {
   return (
     <footer>
@@ -103,7 +104,7 @@ function Footer() {
         <div className="footer-brand">
           <div className="footer-logo">
             <div className="footer-logo-icon">ST</div>
-            <span className="footer-logo-text">Swift Techy</span>
+            <Link href="/" className="footer-logo-text">Swift Techy</Link>
           </div>
           <p className="footer-description">Your trusted source for PC hardware news, reviews, and specifications.</p>
           <div className="social-links">
@@ -116,30 +117,31 @@ function Footer() {
         <div className="footer-column">
           <h4>Categories</h4>
           <ul>
-            <li><a href="#">CPU Reviews</a></li>
-            <li><a href="#">GPU Reviews</a></li>
-            <li><a href="#">Memory & Storage</a></li>
-            <li><a href="#">Cooling Solutions</a></li>
+            {/* FIXED FOOTER LINKS */}
+            <li><Link href="/categories/cpu">CPU Reviews</Link></li>
+            <li><Link href="/categories/gpu">GPU Reviews</Link></li>
+            <li><Link href="/categories/memory">Memory & Storage</Link></li>
+            <li><Link href="/categories/cooling">Cooling Solutions</Link></li>
           </ul>
         </div>
         
         <div className="footer-column">
           <h4>Resources</h4>
           <ul>
-            <li><a href="#">Spec Database</a></li>
-            <li><a href="#">Buying Guides</a></li>
-            <li><a href="#">Benchmarks</a></li>
-            <li><a href="#">Latest News</a></li>
+            <li><Link href="/categories">Spec Database</Link></li>
+            <li><Link href="/categories">Buying Guides</Link></li>
+            <li><Link href="/categories">Benchmarks</Link></li>
+            <li><Link href="/categories/news">Latest News</Link></li>
           </ul>
         </div>
         
         <div className="footer-column">
           <h4>Company</h4>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Team</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><Link href="/about">About Us</Link></li>
+            <li><Link href="/team">Our Team</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/privacy">Privacy Policy</Link></li>
           </ul>
         </div>
       </div>
