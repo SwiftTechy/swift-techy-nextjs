@@ -1,5 +1,6 @@
 // app/page.jsx
 'use client';
+
 import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { getAllArticles } from '@/lib/articles';
@@ -82,16 +83,12 @@ export default function HomePage() {
             </div>
            <div className="stats">
   <div className="stat-item">
-    <h3>{getLatestArticles().length}+</h3>
+    <h3>{latestArticles.length}+</h3>
     <p>Hardware Reviews</p>
   </div>
   <div className="stat-item">
     <h3>{getCPUArticles().length + getGPUArticles().length}+</h3>
     <p>Component Specs</p>
-  </div>
-  <div className="stat-item">
-   <h3>{articles.length}+</h3>
-    <p>Tech Articles</p>
   </div>
 </div>
           </div>
