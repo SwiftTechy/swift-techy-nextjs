@@ -74,7 +74,7 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-content">
           <div className="hero-text">
-            <span className="featured-badge-top">🚀 Featured Story</span>
+            {/* <span className="featured-badge-top">🚀 Featured Story</span> */}
             <h1>Stay Ahead in PC Hardware</h1>
             <p>Independent hardware reviews, specifications, and tech analysis from passionate enthusiasts.</p>
             <div className="hero-buttons">
@@ -96,6 +96,7 @@ export default function HomePage() {
             <div className="featured-card">
               <Link href={`/articles/${featuredArticle.slug}`} className="news-card-link">
                 <div className="featured-card-image-wrapper">
+                  <span className="featured-badge-top">🚀 Featured Story</span>
                   <img src={featuredArticle.image} alt={featuredArticle.title} className="featured-card-image"/>
                 </div>
                 <div className="featured-card-content">

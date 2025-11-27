@@ -17,16 +17,35 @@ export async function generateStaticParams() {
 
 // Helper function to generate TOC from content
 function generateTableOfContents(content) {
-  // This would parse the HTML content and extract h2, h3 tags
-  // For now, return a static TOC - you can enhance this later
-  return [
-    { id: 'what-is-3d-vcache', title: 'What is 3D V-Cache?' },
-    { id: 'gaming-performance', title: 'Gaming Performance' },
-    { id: 'productivity', title: 'Productivity & Content Creation' },
-    { id: 'power-efficiency', title: 'Power Efficiency & Thermals' },
-    { id: 'platform', title: 'Platform & Configuration' },
-    { id: 'verdict', title: 'The Verdict' }
-  ];
+  if (!content) return [];
+  
+  // Extract h2 headings from the content
+  const headingRegex = /<h2[^>]*id="([^"]*)"[^>]*>(.*?)<\/h2>/g;
+  const headings = [];
+  let match;
+  
+  while ((match = headingRegex.exec(content)) !== null) {
+    headings.push({
+      id: match[1],
+      title: match[2].replace(/<[^>]*>/g, '').trim() // Remove any HTML tags from title
+    });
+  }
+  
+  // Fallback if no h2 headings with IDs found
+  if (headings.length === 0) {
+    const fallbackRegex = /<h2[^>]*>(.*?)<\/h2>/g;
+    let fallbackMatch;
+    let index = 0;
+    
+    while ((fallbackMatch = fallbackRegex.exec(content)) !== null) {
+      headings.push({
+        id: `section-${index++}`,
+        title: fallbackMatch[1].replace(/<[^>]*>/g, '').trim()
+      });
+    }
+  }
+  
+  return headings;
 }
 
 export default async function ArticlePage({ params }) {

@@ -302,17 +302,19 @@ header {
 }
 
 .featured-badge-top {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
-  color: #4f46e5;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10; /* Higher z-index to ensure it's above the image */
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
-  border: 1px solid rgba(79, 70, 229, 0.2);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  backdrop-filter: blur(10px); /* Optional: adds a nice glass effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .hero-text h1 {
