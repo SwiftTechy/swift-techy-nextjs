@@ -1,10 +1,11 @@
-// app/categories/page.jsx
 import Link from 'next/link';
-import { getCategories, getAllArticles } from '@/lib/articles';
+import { getAllArticles } from '@/lib/mdx-server.mjs';
+import staticData from '@/lib/static-data.json';
 
-export default function CategoriesPage() {
-  const categories = getCategories();
-  const allArticles = getAllArticles();
+export default async function CategoriesPage() {
+  // Use static data for categories
+  const categories = staticData.categories;
+  const allArticles = await getAllArticles();
 
   // Safe category counts
   const categoryCounts = {};

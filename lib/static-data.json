@@ -1,0 +1,115 @@
+{
+  "categories": [
+    "cpu",
+    "review",
+    "news",
+    "gpu",
+    "memory",
+    "storage",
+    "cooling",
+    "motherboard",
+    "guide",
+    "benchmark"
+  ],
+  "articles": [
+    {
+      "slug": "amd-ryzen-9-7950x3d-review",
+      "categories": [
+        "cpu",
+        "review",
+        "news"
+      ],
+      "title": "AMD Ryzen 9 7950X3D Review: Gaming Performance Redefined"
+    },
+    {
+      "slug": "nvidia-rtx-5090-announcement",
+      "categories": [
+        "gpu",
+        "news"
+      ],
+      "title": "NVIDIA RTX 5090: The Ultimate Graphics Card for 8K Gaming"
+    },
+    {
+      "slug": "intel-core-i9-14900ks-review",
+      "categories": [
+        "cpu",
+        "review"
+      ],
+      "title": "Intel Core i9-14900KS: Breaking the 6 GHz Barrier"
+    },
+    {
+      "slug": "ddr5-8000-ram-performance",
+      "categories": [
+        "memory",
+        "review"
+      ],
+      "title": "DDR5-8000 RAM: Is It Worth the Premium Price?"
+    },
+    {
+      "slug": "pcie-5-0-ssd-showdown",
+      "categories": [
+        "storage",
+        "review",
+        "news"
+      ],
+      "title": "PCIe 5.0 SSDs: The Future of Storage is Here"
+    },
+    {
+      "slug": "amd-radeon-rx-7900-xtx-value",
+      "categories": [
+        "gpu",
+        "review"
+      ],
+      "title": "AMD Radeon RX 7900 XTX: Best Value for 4K Gaming in 2025"
+    },
+    {
+      "slug": "intel-arrow-lake-rumors",
+      "categories": [
+        "cpu",
+        "news"
+      ],
+      "title": "Intel Arrow Lake: Everything We Know So Far"
+    },
+    {
+      "slug": "aio-liquid-cooler-roundup",
+      "categories": [
+        "cooling",
+        "review"
+      ],
+      "title": "Best AIO Liquid Coolers 2025: Top Picks for Every Budget"
+    },
+    {
+      "slug": "amd-ryzen-8000-leak",
+      "categories": [
+        "cpu",
+        "news"
+      ],
+      "title": "AMD Ryzen 8000 Series Leaked: Zen 5 Arrives in 2025"
+    },
+    {
+      "slug": "motherboard-vrm-guide",
+      "categories": [
+        "motherboard",
+        "guide"
+      ],
+      "title": "Motherboard VRM Guide: What Really Matters for Power Delivery"
+    },
+    {
+      "slug": "nvidia-super-refresh",
+      "categories": [
+        "gpu",
+        "news"
+      ],
+      "title": "NVIDIA Super Refresh: RTX 5000 Series Updates Coming Soon"
+    },
+    {
+      "slug": "ssd-endurance-testing",
+      "categories": [
+        "storage",
+        "review",
+        "benchmark"
+      ],
+      "title": "SSD Endurance Testing: Which Drives Last the Longest?"
+    }
+  ]
+}

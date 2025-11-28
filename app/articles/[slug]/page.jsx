@@ -1,15 +1,11 @@
 // app/articles/[slug]/page.jsx
-import { 
-  getArticleBySlug, 
-  getAllArticles, 
-  getRelatedArticles,
-} from '@/lib/articles';
-
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { getArticleBySlug, getAllArticles, getRelatedArticles } from '@/lib/mdx-server.mjs';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
-  const articles = getAllArticles();
+  const articles = await getAllArticles(); // Use async version
   return articles.map((article) => ({
     slug: article.slug,
   }));
@@ -19,30 +15,20 @@ export async function generateStaticParams() {
 function generateTableOfContents(content) {
   if (!content) return [];
   
-  // Extract h2 headings from the content
-  const headingRegex = /<h2[^>]*id="([^"]*)"[^>]*>(.*?)<\/h2>/g;
+  // Extract h2 headings from MDX content (## Heading)
+  const headingRegex = /^##\s+(.+)$/gm;
   const headings = [];
   let match;
+  let index = 0;
   
   while ((match = headingRegex.exec(content)) !== null) {
+    const title = match[1].trim();
+    const id = title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     headings.push({
-      id: match[1],
-      title: match[2].replace(/<[^>]*>/g, '').trim() // Remove any HTML tags from title
+      id: id,
+      title: title
     });
-  }
-  
-  // Fallback if no h2 headings with IDs found
-  if (headings.length === 0) {
-    const fallbackRegex = /<h2[^>]*>(.*?)<\/h2>/g;
-    let fallbackMatch;
-    let index = 0;
-    
-    while ((fallbackMatch = fallbackRegex.exec(content)) !== null) {
-      headings.push({
-        id: `section-${index++}`,
-        title: fallbackMatch[1].replace(/<[^>]*>/g, '').trim()
-      });
-    }
+    index++;
   }
   
   return headings;
@@ -50,14 +36,17 @@ function generateTableOfContents(content) {
 
 export default async function ArticlePage({ params }) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await getArticleBySlug(slug);
 
   if (!article) {
     notFound();
   }
 
   const tableOfContents = generateTableOfContents(article.content);
-  const relatedArticles = getRelatedArticles(article.slug, article.categories);
+  
+  // Add safety check for article.categories
+  const articleCategories = article.categories || [];
+  const relatedArticles = getRelatedArticles(article.slug, articleCategories);
 
   return (
     <div className="ap-container">
@@ -128,9 +117,9 @@ export default async function ArticlePage({ params }) {
         <div className="ap-main-card">
           <main className="ap-content-main">
             {/* Dynamic content from articles.js */}
-            <div className="ap-content" 
-                 dangerouslySetInnerHTML={{ __html: article.content }} 
-            />
+           <div className="ap-content">
+  <MDXRemote source={article.content} />
+</div>
             
             {/* Subscribe Card */}
             <div className="ap-subscribe-card">

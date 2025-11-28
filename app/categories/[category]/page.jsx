@@ -1,12 +1,22 @@
 // app/categories/[category]/page.jsx
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getArticlesByCategory, getCategories } from '@/lib/articles';
+import { getArticlesByCategory } from '@/lib/mdx-server.mjs';
+import staticData from '@/lib/static-data.json';
 
 export async function generateStaticParams() {
-  const categories = getCategories();
-  console.log('📁 DEBUG - Generating static params for categories:', categories);
-  return categories.map((category) => ({
+  return [
+    { category: 'cpu' },
+    { category: 'gpu' },
+    { category: 'memory' },
+    { category: 'storage' },
+    { category: 'news' },
+    { category: 'review' },
+    { category: 'cooling' },
+    { category: 'motherboard' },
+    { category: 'guide' },
+    { category: 'benchmark' }
+  ].map(({ category }) => ({
     category: category,
   }));
 }
@@ -18,7 +28,7 @@ export default async function CategoryPage({ params }) {
   
   console.log('🔍 DEBUG - Requested category:', category);
   
-  const categories = getCategories();
+  const categories = staticData.categories;
   
   // If category doesn't exist, show error
   if (!categories.includes(category)) {
@@ -26,7 +36,7 @@ export default async function CategoryPage({ params }) {
     notFound();
   }
   
-  const articles = getArticlesByCategory(category);
+  const articles = await getArticlesByCategory(category);
   console.log('📄 DEBUG - Found articles for category:', articles.length);
   
   const categoryTitles = {

@@ -16,37 +16,51 @@ function Header() {
 
   return (
     <header>
-      <div className="header-content">
-        <button 
-          className="mobile-menu-btn"
-          onClick={toggleMobileNav}
-          aria-label="Toggle menu"
-        >
-          ☰
-        </button>
+      {/* Main Navigation Bar */}
+      <div className="nav-bar">
+        <div className="header-content">
+          <button 
+            className="mobile-menu-btn"
+            onClick={toggleMobileNav}
+            aria-label="Toggle menu"
+          >
+            ☰
+          </button>
 
-        <div className="logo">
-          <div className="logo-icon">ST</div>
-          <Link href="/">Swift Techy</Link>
+          <div className="logo">
+            <div className="logo-icon">ST</div>
+            <Link href="/">Swift Techy</Link>
+          </div>
+
+          {/* Desktop Navigation */}
+          <nav className="desktop-nav">
+            <ul>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/categories/cpu">CPUs</Link></li>
+              <li><Link href="/categories/gpu">GPUs</Link></li>
+              <li><Link href="/categories/review">Reviews</Link></li>
+              <li><Link href="/categories/news">News</Link></li>
+            </ul>
+          </nav>
+
+          <div className="search-box">
+            <span className="search-icon">🔍</span>
+            <input 
+              type="text" 
+              placeholder="Search articles..." 
+            />
+          </div>
         </div>
+      </div>
 
-        {/* Desktop Navigation - CORRECTED LINKS */}
-        <nav className="desktop-nav">
-          <ul>
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/categories/cpu">CPUs</Link></li>
-            <li><Link href="/categories/gpu">GPUs</Link></li>
-            <li><Link href="/categories/review">Reviews</Link></li>
-            <li><Link href="/categories/news">News</Link></li>
-          </ul>
-        </nav>
-
-        <div className="search-box">
-          <span className="search-icon">🔍</span>
-          <input 
-            type="text" 
-            placeholder="Search articles..." 
-          />
+      {/* Development Banner - Now part of header */}
+      <div className="development-banner">
+        <div className="banner-content">
+          <div className="banner-icon">🚧</div>
+          <div className="banner-text">
+            <strong>Website in Active Development</strong>
+            <span>Real hardware reviews & daily tech news launching soon!</span>
+          </div>
         </div>
       </div>
 
@@ -56,7 +70,7 @@ function Header() {
         onClick={closeMobileNav}
       />
 
-      {/* Mobile Navigation - CORRECTED LINKS */}
+      {/* Mobile Navigation */}
       <nav className={`mobile-nav ${isMobileNavOpen ? 'active' : ''}`}>
         <div className="mobile-nav-container">
           <ul>
@@ -106,7 +120,9 @@ function Footer() {
             <div className="footer-logo-icon">ST</div>
             <Link href="/" className="footer-logo-text">Swift Techy</Link>
           </div>
-          <p className="footer-description">Your trusted source for PC hardware news, reviews, and specifications.</p>
+          <p className="footer-description">
+            Your trusted source for PC hardware news, reviews, and specifications.
+          </p>
           <div className="social-links">
             <a href="#" className="social-icon" aria-label="Twitter">𝕏</a>
             <a href="#" className="social-icon" aria-label="GitHub">⚡</a>
@@ -117,7 +133,6 @@ function Footer() {
         <div className="footer-column">
           <h4>Categories</h4>
           <ul>
-            {/* FIXED FOOTER LINKS */}
             <li><Link href="/categories/cpu">CPU Reviews</Link></li>
             <li><Link href="/categories/gpu">GPU Reviews</Link></li>
             <li><Link href="/categories/memory">Memory & Storage</Link></li>
@@ -162,10 +177,17 @@ function Footer() {
 
 export default function ClientLayout({ children }) {
   return (
-    <>
+    <div className="layout-wrapper">
+      {/* Combined Header with Navigation and Banner */}
       <Header />
-      <main>{children}</main>
+      
+      {/* Main Content Area */}
+      <main className="main-content">
+        {children}
+      </main>
+      
+      {/* Footer */}
       <Footer />
-    </>
+    </div>
   );
 }
