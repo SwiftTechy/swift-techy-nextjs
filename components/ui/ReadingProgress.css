@@ -1,0 +1,120 @@
+/* Marker-Based Vertical Progress Bar - Fixed but relative to article */
+.reading-progress-vertical {
+  position: fixed;
+  left: calc(50% - 605px); /* Position relative to article center */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.reading-progress-vertical.visible {
+  opacity: 1;
+}
+
+.progress-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Vertical Track */
+.progress-track {
+  width: 8px;
+  height: 300px;
+  background: rgba(148, 163, 184, 0.8);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Fill */
+.progress-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, #2563eb, #7c3aed);
+  border-radius: 4px;
+  transition: height 0.1s ease;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.4);
+}
+
+/* Percentage Marker */
+.progress-marker {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  color: #2563eb;
+  padding: 8px 12px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 900;
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(135deg, #2563eb, #7c3aed) border-box;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+  transition: all 0.2s ease;
+  min-width: 48px;
+  text-align: center;
+  pointer-events: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.3px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1200px) {
+  .reading-progress-vertical {
+    left: calc(50% - 350px); /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 1024px) {
+  .reading-progress-vertical {
+    left: 25px; /* Fallback to left edge on tablets */
+  }
+  
+  .progress-track {
+    height: 250px;
+    width: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reading-progress-vertical {
+    left: 15px;
+    transform: translateY(-50%) scale(0.9);
+  }
+  
+  .progress-track {
+    height: 200px;
+    width: 5px;
+    background: rgba(148, 163, 184, 0.9);
+  }
+  
+  .progress-marker {
+    padding: 7px 10px;
+    font-size: 12px;
+    min-width: 42px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reading-progress-vertical {
+    left: 10px;
+    transform: translateY(-50%) scale(0.8);
+  }
+  
+  .progress-track {
+    height: 150px;
+    width: 4px;
+  }
+}

@@ -4,8 +4,13 @@ import { getArticleBySlug, getAllArticles, getRelatedArticles } from '@/lib/mdx-
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Link from 'next/link';
 
+// Import the new components
+import ReadingProgress from '@/components/ui/ReadingProgress';
+import SocialShare from '@/components/ui/SocialShare';
+import AuthorProfile from '@/components/layout/AuthorProfile';
+
 export async function generateStaticParams() {
-  const articles = await getAllArticles(); // Use async version
+  const articles = await getAllArticles();
   return articles.map((article) => ({
     slug: article.slug,
   }));
@@ -50,6 +55,11 @@ export default async function ArticlePage({ params }) {
 
   return (
     <div className="ap-container">
+      {/* Reading Progress Bar */}
+       <div className="progress-bar-wrapper">
+      <ReadingProgress />
+      </div>
+      
       {/* Hero Section */}
       <section className="ap-hero">
         <div className="ap-hero-content">
@@ -117,9 +127,12 @@ export default async function ArticlePage({ params }) {
         <div className="ap-main-card">
           <main className="ap-content-main">
             {/* Dynamic content from articles.js */}
-           <div className="ap-content">
-  <MDXRemote source={article.content} />
-</div>
+            <div className="ap-content">
+              <MDXRemote source={article.content} />
+            </div>
+            
+            {/* Social Sharing Component */}
+            <SocialShare title={article.title} slug={article.slug} />
             
             {/* Subscribe Card */}
             <div className="ap-subscribe-card">
@@ -159,23 +172,8 @@ export default async function ArticlePage({ params }) {
               </div>
             )}
 
-            {/* Dynamic Author Bio */}
-            <div className="ap-author-bio-card">
-              <div className="ap-author-avatar">
-                {article.author.split(' ').map(n => n[0]).join('')}
-              </div>
-              <div className="ap-author-details">
-                <div className="ap-author-name">{article.author}</div>
-                <div className="ap-author-role">{article.authorBio?.role || 'Senior Hardware Reviewer'}</div>
-                <p className="ap-author-description">
-                  {article.authorBio?.description || 'Hardware enthusiast with extensive experience testing PC components.'}
-                </p>
-                <div className="ap-author-actions">
-                  <button className="ap-follow-button">Follow</button>
-                  <button className="ap-contact-button">Contact</button>
-                </div>
-              </div>
-            </div>
+            {/* Author Profile Component */}
+            <AuthorProfile author={article.author} />
           </main>
         </div>
 

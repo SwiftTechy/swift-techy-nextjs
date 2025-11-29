@@ -1,10 +1,30 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import SearchModal from '@/components/ui/SearchModal';
 
 function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [articles, setArticles] = useState([]);
+
+  // Load articles for search - only on client side
+  useEffect(() => {
+    async function loadArticles() {
+      try {
+        // Fetch articles from API route instead of importing mdx-server directly
+        const response = await fetch('/api/articles');
+        if (response.ok) {
+          const articlesData = await response.json();
+          setArticles(articlesData);
+        }
+      } catch (error) {
+        console.error('Failed to load articles:', error);
+      }
+    }
+    loadArticles();
+  }, []);
 
   const toggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
@@ -12,6 +32,10 @@ function Header() {
 
   const closeMobileNav = () => {
     setIsMobileNavOpen(false);
+  };
+
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
   };
 
   return (
@@ -43,11 +67,12 @@ function Header() {
             </ul>
           </nav>
 
-          <div className="search-box">
+          <div className="search-box" onClick={toggleSearch}>
             <span className="search-icon">🔍</span>
             <input 
               type="text" 
               placeholder="Search articles..." 
+              readOnly
             />
           </div>
         </div>
@@ -107,6 +132,13 @@ function Header() {
           </ul>
         </div>
       </nav>
+
+      {/* Search Modal */}
+      <SearchModal 
+        isOpen={isSearchOpen} 
+        onClose={() => setIsSearchOpen(false)}
+        articles={articles}
+      />
     </header>
   );
 }
