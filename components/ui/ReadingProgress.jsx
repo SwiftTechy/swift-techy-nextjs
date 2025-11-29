@@ -23,22 +23,18 @@ export default function ReadingProgress() {
     return () => window.removeEventListener('scroll', updateProgress);
   }, []);
 
-  // Marker moves from top (0%) to bottom (100%)
   const markerPosition = `${progress}%`;
 
   return (
     <div className={`reading-progress-vertical ${isVisible ? 'visible' : ''}`}>
       <div className="progress-container">
-        {/* Vertical Track */}
         <div className="progress-track">
-          {/* Progress Fill - grows from TOP to marker */}
           <div 
             className="progress-fill"
             style={{ height: `${progress}%` }}
           />
         </div>
         
-        {/* Percentage Marker - moves DOWN the track */}
         <div 
           className="progress-marker"
           style={{ top: markerPosition }}
