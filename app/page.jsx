@@ -9,6 +9,7 @@ import {
   getOtherArticles,
   getArticlesByCategory
 } from '@/lib/mdx-server.mjs';
+import NewsletterSignup from '@/components/ui/NewsletterSignup'; // ← ADD THIS IMPORT
 
 export default async function HomePage() {
   // Add debug logging
@@ -208,6 +209,13 @@ export default async function HomePage() {
               ⭐ Reviews ({reviewArticles.length})
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* NEWSLETTER SECTION - ADD THIS SECTION */}
+      <section className="content-section">
+        <div className="content-container">
+          <NewsletterSignup />
         </div>
       </section>
     </div>
